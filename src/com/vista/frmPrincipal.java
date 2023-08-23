@@ -20,6 +20,7 @@ public final class frmPrincipal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/img/icons/logo.png")));
         UIController.ScrollBarrCustom(ScrollMenu);
+        UIController.ScrollBarrCustom(scrollContenedor);
         UIController.ScrollInvisible(ScrollMenu);
         configPanelInicial();
         irModuloInicio();
@@ -61,6 +62,7 @@ public final class frmPrincipal extends javax.swing.JFrame {
         logoExamamenes = new javax.swing.JLabel();
         jlbExamenes = new javax.swing.JLabel();
         FocusExamenes = new javax.swing.JLabel();
+        scrollContenedor = new javax.swing.JScrollPane();
         contenedor = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -465,10 +467,8 @@ public final class frmPrincipal extends javax.swing.JFrame {
 
         ScrollMenu.setViewportView(panelMenun);
 
-        contenedor.setBackground(new java.awt.Color(236, 244, 249));
-        contenedor.setAlignmentX(0.0F);
-        contenedor.setAlignmentY(0.0F);
         contenedor.setLayout(new java.awt.CardLayout());
+        scrollContenedor.setViewportView(contenedor);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -477,19 +477,23 @@ public final class frmPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(ScrollMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(panelEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, 1077, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addComponent(contenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addComponent(panelEncabezado, javax.swing.GroupLayout.DEFAULT_SIZE, 1077, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGap(111, 111, 111)
+                    .addComponent(scrollContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, 1089, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addComponent(ScrollMenu)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(panelEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(contenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGap(74, 74, 74)
+                    .addComponent(scrollContenedor, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -603,7 +607,7 @@ public final class frmPrincipal extends javax.swing.JFrame {
     public javax.swing.JPanel btnInicio;
     private com.modelo.PanelRound btnInstagram;
     private com.modelo.PanelRound btnYoutube;
-    public javax.swing.JPanel contenedor;
+    private javax.swing.JPanel contenedor;
     private javax.swing.JLabel eslogan;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -625,5 +629,6 @@ public final class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel panelEncabezado;
     private javax.swing.JPanel panelMenun;
     private javax.swing.JPanel panelRedes;
+    private javax.swing.JScrollPane scrollContenedor;
     // End of variables declaration//GEN-END:variables
 }

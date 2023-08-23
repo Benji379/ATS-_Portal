@@ -11,9 +11,9 @@ public final class moduloPrincipal extends javax.swing.JPanel {
 
     public moduloPrincipal() {
         initComponents();
-        UIController.ScrollBarrCustom(jScrollPane);
         ControladorPanelPrincipal.initCarrusel();
         txtFecha.setText(ControladorPanelPrincipal.initFecha());
+        UIController.subrayarJLabel(btnRolExamenes);
     }
 
     
@@ -21,8 +21,6 @@ public final class moduloPrincipal extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane = new javax.swing.JScrollPane();
-        Panel = new javax.swing.JPanel();
         contenedor = new javax.swing.JPanel();
         panelFecha = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -30,20 +28,16 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         btnIrHorario = new com.modelo.PanelRound();
         jLabel2 = new javax.swing.JLabel();
         panelRound1 = new com.modelo.PanelRound();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jlbTambienpouede = new javax.swing.JLabel();
+        btnRolExamenes = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(236, 244, 249));
+        setPreferredSize(new java.awt.Dimension(1087, 624));
         addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 formMouseClicked(evt);
             }
         });
-
-        jScrollPane.setPreferredSize(new java.awt.Dimension(1087, 578));
-
-        Panel.setBackground(new java.awt.Color(236, 244, 249));
-        Panel.setPreferredSize(new java.awt.Dimension(1087, 578));
 
         contenedor.setBackground(new java.awt.Color(51, 255, 255));
         contenedor.setFocusCycleRoot(true);
@@ -115,61 +109,55 @@ public final class moduloPrincipal extends javax.swing.JPanel {
             .addGap(0, 130, Short.MAX_VALUE)
         );
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jLabel3.setText("También puedes ver tu");
+        jlbTambienpouede.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jlbTambienpouede.setText("También puedes ver tu");
 
-        jLabel4.setBackground(new java.awt.Color(91, 54, 242));
-        jLabel4.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(91, 54, 242));
-        jLabel4.setText("rol de examenes aquí");
-        jLabel4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout PanelLayout = new javax.swing.GroupLayout(Panel);
-        Panel.setLayout(PanelLayout);
-        PanelLayout.setHorizontalGroup(
-            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelLayout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
-                .addComponent(contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, 979, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
-            .addGroup(PanelLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(PanelLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4))
-                    .addComponent(panelFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        PanelLayout.setVerticalGroup(
-            PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(PanelLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addComponent(contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(panelFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jScrollPane.setViewportView(Panel);
+        btnRolExamenes.setBackground(new java.awt.Color(91, 54, 242));
+        btnRolExamenes.setFont(new java.awt.Font("Century Gothic", 1, 12)); // NOI18N
+        btnRolExamenes.setForeground(new java.awt.Color(91, 54, 242));
+        btnRolExamenes.setText("rol de examenes aquí");
+        btnRolExamenes.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        btnRolExamenes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRolExamenes.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnRolExamenes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnRolExamenesMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 1087, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jlbTambienpouede)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRolExamenes))
+                    .addComponent(panelFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(54, Short.MAX_VALUE)
+                .addComponent(contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, 979, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(contenedor, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(panelFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlbTambienpouede)
+                    .addComponent(btnRolExamenes))
+                .addContainerGap(451, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -178,20 +166,21 @@ public final class moduloPrincipal extends javax.swing.JPanel {
     }//GEN-LAST:event_formMouseClicked
 
     private void btnIrHorarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIrHorarioMouseClicked
-        frmPrincipal ac = new frmPrincipal();
-        ac.irModuloCursos();
+        
     }//GEN-LAST:event_btnIrHorarioMouseClicked
+
+    private void btnRolExamenesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnRolExamenesMouseClicked
+        
+    }//GEN-LAST:event_btnRolExamenesMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Panel;
     public static com.modelo.PanelRound btnIrHorario;
+    private javax.swing.JLabel btnRolExamenes;
     public static javax.swing.JPanel contenedor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane;
+    private javax.swing.JLabel jlbTambienpouede;
     private javax.swing.JPanel panelFecha;
     private com.modelo.PanelRound panelRound1;
     private javax.swing.JLabel txtFecha;

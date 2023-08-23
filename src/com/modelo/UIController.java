@@ -6,11 +6,13 @@ import java.awt.Dimension;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.util.List;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
+import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import scrollbar.ScrollBarCustom;
 
@@ -102,4 +104,10 @@ public class UIController {
         contenedor.revalidate();
         contenedor.repaint();
     }
+
+     public static void subrayarJLabel(JLabel label) {
+        String labelText = label.getText();
+        label.setText("<html><u>" + labelText + "</u></html>");
+    }
+
 }
