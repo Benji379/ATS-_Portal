@@ -1,17 +1,19 @@
 package com.controlador;
 
+import com.modelo.ActionUtils;
 import com.modelo.CarruselDesvancido;
-import com.vista.moduloPrincipal;
+import com.modelo.UIController;
 import java.util.ArrayList;
 import java.util.List;
+import com.vista.moduloPrincipal;
 
 /**
  *
  * @author Benji
  */
-public class ControladorCarrusel {
-        
-    public static void initCarrusel(){
+public class ControladorPanelPrincipal {
+
+    public static void initCarrusel() {
         List<String> imagePaths = new ArrayList<>();
         imagePaths.add("src\\com\\img\\carrusel\\img1.jpg");
         imagePaths.add("src\\com\\img\\carrusel\\img2.jpg");
@@ -25,5 +27,11 @@ public class ControladorCarrusel {
         imageUrls.add("https://tubiblioteca.utp.edu.pe/");
         imageUrls.add("https://encuestas.utp.edu.pe/");
         CarruselDesvancido carousel = new CarruselDesvancido(moduloPrincipal.contenedor, imagePaths, imageUrls, interval);
+        UIController.setPanelBackgroundColors(moduloPrincipal.btnIrHorario, "#5b36f2", "#745ef6");
     }
+
+    public static String initFecha() {
+        return ActionUtils.getDia() + " " + ActionUtils.getNameMes() + " " + ActionUtils.getAño();
+    }
+
 }

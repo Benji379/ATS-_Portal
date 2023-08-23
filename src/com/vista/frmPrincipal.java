@@ -11,11 +11,10 @@ import javax.swing.JLabel;
  *
  * @author Benji
  */
-
 public final class frmPrincipal extends javax.swing.JFrame {
 
     List<JLabel> labelList = new ArrayList<>();
-    
+
     public frmPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -23,8 +22,7 @@ public final class frmPrincipal extends javax.swing.JFrame {
         UIController.ScrollBarrCustom(ScrollMenu);
         UIController.ScrollInvisible(ScrollMenu);
         configPanelInicial();
-        UIController.MostrarPanel(contenedor, new moduloPrincipal(), 1087, 578);
-        FocusPanel(FocusInicio);
+        irModuloInicio();
     }
 
     @SuppressWarnings("unchecked")
@@ -56,12 +54,12 @@ public final class frmPrincipal extends javax.swing.JFrame {
         jlbInicio = new javax.swing.JLabel();
         FocusInicio = new javax.swing.JLabel();
         btnCursos = new javax.swing.JPanel();
-        logoCasa1 = new javax.swing.JLabel();
+        logoCursos = new javax.swing.JLabel();
         jlbCursos = new javax.swing.JLabel();
         FocusCursos = new javax.swing.JLabel();
         btnExamenes = new javax.swing.JPanel();
-        logoCasa2 = new javax.swing.JLabel();
-        jlbCursos1 = new javax.swing.JLabel();
+        logoExamamenes = new javax.swing.JLabel();
+        jlbExamenes = new javax.swing.JLabel();
         FocusExamenes = new javax.swing.JLabel();
         contenedor = new javax.swing.JPanel();
 
@@ -362,8 +360,8 @@ public final class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        logoCasa1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoCasa1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/img/barraMenu/libro.png"))); // NOI18N
+        logoCursos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoCursos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/img/barraMenu/libro.png"))); // NOI18N
 
         jlbCursos.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jlbCursos.setForeground(new java.awt.Color(40, 48, 68));
@@ -383,14 +381,14 @@ public final class frmPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(btnCursosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jlbCursos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(logoCasa1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(logoCursos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(29, 29, 29))
         );
         btnCursosLayout.setVerticalGroup(
             btnCursosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnCursosLayout.createSequentialGroup()
                 .addGap(0, 22, Short.MAX_VALUE)
-                .addComponent(logoCasa1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoCursos, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jlbCursos)
                 .addGap(19, 19, 19))
@@ -405,13 +403,13 @@ public final class frmPrincipal extends javax.swing.JFrame {
             }
         });
 
-        logoCasa2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        logoCasa2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/img/barraMenu/hoja.png"))); // NOI18N
+        logoExamamenes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        logoExamamenes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/img/barraMenu/hoja.png"))); // NOI18N
 
-        jlbCursos1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        jlbCursos1.setForeground(new java.awt.Color(40, 48, 68));
-        jlbCursos1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlbCursos1.setText("Examenes");
+        jlbExamenes.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
+        jlbExamenes.setForeground(new java.awt.Color(40, 48, 68));
+        jlbExamenes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbExamenes.setText("Examenes");
 
         FocusExamenes.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         FocusExamenes.setForeground(new java.awt.Color(40, 48, 68));
@@ -426,19 +424,19 @@ public final class frmPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(btnExamenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(btnExamenesLayout.createSequentialGroup()
-                        .addComponent(logoCasa2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(logoExamamenes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(29, 29, 29))
                     .addGroup(btnExamenesLayout.createSequentialGroup()
-                        .addComponent(jlbCursos1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlbExamenes, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(19, Short.MAX_VALUE))))
         );
         btnExamenesLayout.setVerticalGroup(
             btnExamenesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, btnExamenesLayout.createSequentialGroup()
                 .addGap(0, 20, Short.MAX_VALUE)
-                .addComponent(logoCasa2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(logoExamamenes, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jlbCursos1)
+                .addComponent(jlbExamenes)
                 .addGap(19, 19, 19))
             .addComponent(FocusExamenes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -517,23 +515,22 @@ public final class frmPrincipal extends javax.swing.JFrame {
         UIController.setPanelBackgroundColors(btnGitHub, "#a8cbe2", "#d5e5f0");
         UIController.setPanelBackgroundColors(btnYoutube, "#a8cbe2", "#d5e5f0");
         UIController.setPanelBackgroundColors(btnInstagram, "#a8cbe2", "#d5e5f0");
-        
-        
+
         labelList.add(FocusInicio);
         labelList.add(FocusCursos);
         labelList.add(FocusExamenes);
     }
-    
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
-    
+
     private void btnCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCursosMouseClicked
-        FocusPanel(FocusCursos);
+        irModuloCursos();
     }//GEN-LAST:event_btnCursosMouseClicked
 
     private void btnInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInicioMouseClicked
-        FocusPanel(FocusInicio);
+        irModuloInicio();
     }//GEN-LAST:event_btnInicioMouseClicked
 
     private void btnExamenesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExamenesMouseClicked
@@ -552,10 +549,21 @@ public final class frmPrincipal extends javax.swing.JFrame {
         ActionUtils.AccederEnlace("https://github.com/Benji379?tab=stars");
     }//GEN-LAST:event_btnGitHubMouseClicked
 
-    private void FocusPanel(JLabel label) {
+    public void FocusPanel(JLabel label) {
         UIController.removeIconsExceptOne(labelList, label);
         label.setIcon(new ImageIcon(getClass().getResource("/com/img/barraMenu/lineaRosa.png"))); // NOI18N
     }
+
+    public void irModuloInicio() {
+        FocusPanel(FocusInicio);
+        UIController.MostrarPanel(contenedor, new moduloPrincipal(), 1087, 578);
+    }
+    
+    public void irModuloCursos() {
+        FocusPanel(FocusCursos);
+//        UIController.MostrarPanel(contenedor, new moduloPrincipal(), 1087, 578);
+    }
+    
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -584,18 +592,18 @@ public final class frmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel FocusCursos;
-    private javax.swing.JLabel FocusExamenes;
-    private javax.swing.JLabel FocusInicio;
+    public javax.swing.JLabel FocusCursos;
+    public javax.swing.JLabel FocusExamenes;
+    public javax.swing.JLabel FocusInicio;
     private javax.swing.JScrollPane ScrollMenu;
     private javax.swing.JPanel btn3Rallas;
-    private javax.swing.JPanel btnCursos;
-    private javax.swing.JPanel btnExamenes;
+    public javax.swing.JPanel btnCursos;
+    public javax.swing.JPanel btnExamenes;
     private com.modelo.PanelRound btnGitHub;
-    private javax.swing.JPanel btnInicio;
+    public javax.swing.JPanel btnInicio;
     private com.modelo.PanelRound btnInstagram;
     private com.modelo.PanelRound btnYoutube;
-    private javax.swing.JPanel contenedor;
+    public javax.swing.JPanel contenedor;
     private javax.swing.JLabel eslogan;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -606,11 +614,11 @@ public final class frmPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel jlbCursos;
-    private javax.swing.JLabel jlbCursos1;
+    private javax.swing.JLabel jlbExamenes;
     private javax.swing.JLabel jlbInicio;
     private javax.swing.JLabel logoCasa;
-    private javax.swing.JLabel logoCasa1;
-    private javax.swing.JLabel logoCasa2;
+    private javax.swing.JLabel logoCursos;
+    private javax.swing.JLabel logoExamamenes;
     private javax.swing.JLabel logoGitHub;
     private javax.swing.JLabel logoInstagram;
     private javax.swing.JLabel logoYoutube;
