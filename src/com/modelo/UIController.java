@@ -105,9 +105,28 @@ public class UIController {
         contenedor.repaint();
     }
 
-     public static void subrayarJLabel(JLabel label) {
+    public static void subrayarJLabel(JLabel label) {
         String labelText = label.getText();
         label.setText("<html><u>" + labelText + "</u></html>");
     }
+    public static void ajustarJLabel(JLabel label) {
+        String labelText = label.getText();
+        label.setText("<html>" + labelText + "</html>");
+    }
 
+    
+    public static void separadorCustom(JLabel label) {
+        // Obtenemos el borde actual del JLabel
+        Border border = label.getBorder();
+
+        // Creamos un borde compuesto que incluye un borde inferior
+        Border compoundBorder = BorderFactory.createCompoundBorder(
+                border,
+                BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(168,203,226)) // Borde inferior negro
+        );
+
+        // Establecemos el nuevo borde para el JLabel
+        label.setBorder(compoundBorder);
+    }
+    
 }
