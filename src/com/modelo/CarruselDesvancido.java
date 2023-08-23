@@ -140,28 +140,4 @@ public class CarruselDesvancido {
         }
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            JPanel containerPanel = new JPanel();
-            containerPanel.setLayout(new BorderLayout());
-            List<String> imagePaths = new ArrayList<>();
-            imagePaths.add("src\\com\\img\\carrusel\\img1.jpg");
-            imagePaths.add("src\\com\\img\\carrusel\\img2.jpg");
-            imagePaths.add("src\\com\\img\\carrusel\\img3.jpg");
-            List<String> imageUrls = new ArrayList<>();
-            imageUrls.add("https://www.canva.com/design/DAFo_GQzmVs/rEkmuwjiikwVMH5PIZpIJg/view?utm_content=DAFo_GQzmVs&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink");
-            imageUrls.add("https://view.genial.ly/62f289509f74f500192144dc?utm_campaign=Pronto+Pago+AGO23&utm_medium=bitly&utm_source=Banner++-+UTP+%2B+Portal");
-            imageUrls.add("https://tubiblioteca.utp.edu.pe/");
-            int interval = 5000; // 5 segundos (5000 milisegundos) entre transiciones
-
-            JFrame frame = new JFrame();
-            frame.setTitle("Image Carousel with Links");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setSize(800, 600);
-
-            CarruselDesvancido carousel = new CarruselDesvancido(containerPanel, imagePaths, imageUrls, interval);
-            frame.add(containerPanel);
-            frame.setVisible(true);
-        });
-    }
 }
