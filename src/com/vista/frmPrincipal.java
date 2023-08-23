@@ -11,10 +11,11 @@ import javax.swing.JLabel;
  *
  * @author Benji
  */
+
 public final class frmPrincipal extends javax.swing.JFrame {
 
     List<JLabel> labelList = new ArrayList<>();
-
+    
     public frmPrincipal() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -22,7 +23,7 @@ public final class frmPrincipal extends javax.swing.JFrame {
         UIController.ScrollBarrCustom(ScrollMenu);
         UIController.ScrollInvisible(ScrollMenu);
         configPanelInicial();
-        UIController.MostrarPanel(contenedor, new moduloPrincipal(), 995, 588);
+        UIController.MostrarPanel(contenedor, new moduloPrincipal(), 1087, 578);
         FocusPanel(FocusInicio);
     }
 
@@ -490,7 +491,7 @@ public final class frmPrincipal extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(panelEncabezado, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(contenedor, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE))
+                .addComponent(contenedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -508,22 +509,25 @@ public final class frmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void configPanelInicial() {
+        //Modulos
         UIController.setPanelBackgroundColors(btnInicio, "#a8cbe2", "#d5e5f0");
         UIController.setPanelBackgroundColors(btnCursos, "#a8cbe2", "#d5e5f0");
         UIController.setPanelBackgroundColors(btnExamenes, "#a8cbe2", "#d5e5f0");
+        //Redes
         UIController.setPanelBackgroundColors(btnGitHub, "#a8cbe2", "#d5e5f0");
         UIController.setPanelBackgroundColors(btnYoutube, "#a8cbe2", "#d5e5f0");
         UIController.setPanelBackgroundColors(btnInstagram, "#a8cbe2", "#d5e5f0");
-
+        
+        
         labelList.add(FocusInicio);
         labelList.add(FocusCursos);
         labelList.add(FocusExamenes);
     }
-
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
     private void btnCursosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCursosMouseClicked
         FocusPanel(FocusCursos);
     }//GEN-LAST:event_btnCursosMouseClicked
