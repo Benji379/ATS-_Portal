@@ -1,11 +1,8 @@
 package com.vista;
 
+import com.controlador.ControladorFrmPrincipal;
 import com.modelo.ActionUtils;
 import com.modelo.UIController;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 /**
  *
@@ -13,17 +10,19 @@ import javax.swing.JLabel;
  */
 public final class frmPrincipal extends javax.swing.JFrame {
 
-    List<JLabel> labelList = new ArrayList<>();
+    ControladorFrmPrincipal ac = new ControladorFrmPrincipal();
 
     public frmPrincipal() {
         initComponents();
+        initControlador();
         this.setLocationRelativeTo(null);
         this.setIconImage(java.awt.Toolkit.getDefaultToolkit().getImage(getClass().getResource("/com/img/icons/logo.png")));
-        UIController.ScrollBarrCustom(ScrollMenu);
-        UIController.ScrollBarrCustom(scrollContenedor);
-        UIController.ScrollInvisible(ScrollMenu);
-        configPanelInicial();
         irModuloInicio();
+    }
+
+    private void initControlador() {
+        ControladorFrmPrincipal.configScroll();
+        ControladorFrmPrincipal.configPanelInicial();
     }
 
     @SuppressWarnings("unchecked")
@@ -325,7 +324,7 @@ public final class frmPrincipal extends javax.swing.JFrame {
         jlbInicio.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jlbInicio.setForeground(new java.awt.Color(40, 48, 68));
         jlbInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jlbInicio.setText("Incio");
+        jlbInicio.setText("Inicio");
 
         FocusInicio.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         FocusInicio.setForeground(new java.awt.Color(40, 48, 68));
@@ -510,20 +509,6 @@ public final class frmPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void configPanelInicial() {
-        //Modulos
-        UIController.setPanelBackgroundColors(btnInicio, "#a8cbe2", "#d5e5f0");
-        UIController.setPanelBackgroundColors(btnCursos, "#a8cbe2", "#d5e5f0");
-        UIController.setPanelBackgroundColors(btnExamenes, "#a8cbe2", "#d5e5f0");
-        //Redes
-        UIController.setPanelBackgroundColors(btnGitHub, "#a8cbe2", "#d5e5f0");
-        UIController.setPanelBackgroundColors(btnYoutube, "#a8cbe2", "#d5e5f0");
-        UIController.setPanelBackgroundColors(btnInstagram, "#a8cbe2", "#d5e5f0");
-
-        labelList.add(FocusInicio);
-        labelList.add(FocusCursos);
-        labelList.add(FocusExamenes);
-    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
@@ -538,7 +523,7 @@ public final class frmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInicioMouseClicked
 
     private void btnExamenesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnExamenesMouseClicked
-        FocusPanel(FocusExamenes);
+        ac.FocusPanel(FocusExamenes);
     }//GEN-LAST:event_btnExamenesMouseClicked
 
     private void btnInstagramMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInstagramMouseClicked
@@ -553,21 +538,15 @@ public final class frmPrincipal extends javax.swing.JFrame {
         ActionUtils.AccederEnlace("https://github.com/Benji379?tab=stars");
     }//GEN-LAST:event_btnGitHubMouseClicked
 
-    public void FocusPanel(JLabel label) {
-        UIController.removeIconsExceptOne(labelList, label);
-        label.setIcon(new ImageIcon(getClass().getResource("/com/img/barraMenu/lineaRosa.png"))); // NOI18N
-    }
-
     public void irModuloInicio() {
-        FocusPanel(FocusInicio);
+        ac.FocusPanel(FocusInicio);
         UIController.MostrarPanel(contenedor, new moduloPrincipal(), 1087, 578);
     }
-    
+
     public void irModuloCursos() {
-        FocusPanel(FocusCursos);
+        ac.FocusPanel(FocusCursos);
 //        UIController.MostrarPanel(contenedor, new moduloPrincipal(), 1087, 578);
     }
-    
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -596,39 +575,39 @@ public final class frmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JLabel FocusCursos;
-    public javax.swing.JLabel FocusExamenes;
-    public javax.swing.JLabel FocusInicio;
-    private javax.swing.JScrollPane ScrollMenu;
-    private javax.swing.JPanel btn3Rallas;
-    public javax.swing.JPanel btnCursos;
-    public javax.swing.JPanel btnExamenes;
-    private com.modelo.PanelRound btnGitHub;
-    public javax.swing.JPanel btnInicio;
-    private com.modelo.PanelRound btnInstagram;
-    private com.modelo.PanelRound btnYoutube;
-    private javax.swing.JPanel contenedor;
-    private javax.swing.JLabel eslogan;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JLabel jlbCursos;
-    private javax.swing.JLabel jlbExamenes;
-    private javax.swing.JLabel jlbInicio;
-    private javax.swing.JLabel logoCasa;
-    private javax.swing.JLabel logoCursos;
-    private javax.swing.JLabel logoExamamenes;
-    private javax.swing.JLabel logoGitHub;
-    private javax.swing.JLabel logoInstagram;
-    private javax.swing.JLabel logoYoutube;
-    private javax.swing.JPanel panelEncabezado;
-    private javax.swing.JPanel panelMenun;
-    private javax.swing.JPanel panelRedes;
-    private javax.swing.JScrollPane scrollContenedor;
+    public static javax.swing.JLabel FocusCursos;
+    public static javax.swing.JLabel FocusExamenes;
+    public static javax.swing.JLabel FocusInicio;
+    public static javax.swing.JScrollPane ScrollMenu;
+    public static javax.swing.JPanel btn3Rallas;
+    public static javax.swing.JPanel btnCursos;
+    public static javax.swing.JPanel btnExamenes;
+    public static com.modelo.PanelRound btnGitHub;
+    public static javax.swing.JPanel btnInicio;
+    public static com.modelo.PanelRound btnInstagram;
+    public static com.modelo.PanelRound btnYoutube;
+    public static javax.swing.JPanel contenedor;
+    public static javax.swing.JLabel eslogan;
+    public static javax.swing.JButton jButton1;
+    public static javax.swing.JLabel jLabel1;
+    public static javax.swing.JLabel jLabel2;
+    public static javax.swing.JLabel jLabel3;
+    public static javax.swing.JLabel jLabel4;
+    public static javax.swing.JPanel jPanel1;
+    public static javax.swing.JPanel jPanel2;
+    public static javax.swing.JSeparator jSeparator1;
+    public static javax.swing.JLabel jlbCursos;
+    public static javax.swing.JLabel jlbExamenes;
+    public static javax.swing.JLabel jlbInicio;
+    public static javax.swing.JLabel logoCasa;
+    public static javax.swing.JLabel logoCursos;
+    public static javax.swing.JLabel logoExamamenes;
+    public static javax.swing.JLabel logoGitHub;
+    public static javax.swing.JLabel logoInstagram;
+    public static javax.swing.JLabel logoYoutube;
+    public static javax.swing.JPanel panelEncabezado;
+    public static javax.swing.JPanel panelMenun;
+    public static javax.swing.JPanel panelRedes;
+    public static javax.swing.JScrollPane scrollContenedor;
     // End of variables declaration//GEN-END:variables
 }

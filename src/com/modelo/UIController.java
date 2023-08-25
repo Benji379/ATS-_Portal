@@ -2,9 +2,13 @@ package com.modelo;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -109,12 +113,12 @@ public class UIController {
         String labelText = label.getText();
         label.setText("<html><u>" + labelText + "</u></html>");
     }
+
     public static void ajustarJLabel(JLabel label) {
         String labelText = label.getText();
         label.setText("<html>" + labelText + "</html>");
     }
 
-    
     public static void separadorCustom(JLabel label) {
         // Obtenemos el borde actual del JLabel
         Border border = label.getBorder();
@@ -122,11 +126,45 @@ public class UIController {
         // Creamos un borde compuesto que incluye un borde inferior
         Border compoundBorder = BorderFactory.createCompoundBorder(
                 border,
-                BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(168,203,226)) // Borde inferior negro
+                BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(168, 203, 226)) // Borde inferior negro
         );
 
         // Establecemos el nuevo borde para el JLabel
         label.setBorder(compoundBorder);
     }
-    
+
+    public static void CursorSelectSubrayadoCustom(JLabel label) {
+        String labelText = label.getText();
+        labelText = "<html><u>" + labelText + "</u></html>";
+        label.setText(labelText);
+
+        label.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+        Font originalFont = label.getFont();
+        Font biggerBoldFont = originalFont.deriveFont(originalFont.getSize() + 1f).deriveFont(Font.BOLD);
+
+        label.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                label.setFont(biggerBoldFont);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                label.setFont(originalFont);
+            }
+        });
+    }
+
+    public static void configBotones(JPanel... panel) {
+        for (JPanel p : panel) {
+            UIController.setPanelBackgroundColors(p, "#a8cbe2", "#d5e5f0");
+        }
+    }
+
+    public static void configLabel(JLabel... label) {
+        for (JLabel l : label) {
+            UIController.ajustarJLabel(l);
+        }
+    }
 }
