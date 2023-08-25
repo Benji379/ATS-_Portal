@@ -13,12 +13,6 @@ public final class moduloPrincipal extends javax.swing.JPanel {
     public moduloPrincipal() {
         initComponents();
         initControlador();
-        UIController.CursorSelectSubrayadoCustom(labelCorreo);
-        UIController.CursorSelectSubrayadoCustom(labelCanvas);
-        UIController.CursorSelectSubrayadoCustom(labelMicrosft);
-        UIController.CursorSelectSubrayadoCustom(jlbContacLima);
-        UIController.CursorSelectSubrayadoCustom(jlbContacProvincias);
-
     }
 
     private void initControlador() {
@@ -27,6 +21,7 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         ControladorPanelPrincipal.initBotones();
         UIController.separadorCustom(separador);
         UIController.separadorCustom(separador1);
+        ControladorPanelPrincipal.initLabelSubrayado();
         ControladorPanelPrincipal.initLabel();
     }
 
@@ -110,15 +105,10 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         btnContacProvincias = new com.modelo.PanelRound();
         jlbContacProvincias = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jlbTodosDerechosReservadis = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(236, 244, 249));
         setPreferredSize(new java.awt.Dimension(1087, 1377));
-        addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                formMouseClicked(evt);
-            }
-        });
 
         contenedor.setBackground(new java.awt.Color(51, 255, 255));
         contenedor.setFocusCycleRoot(true);
@@ -212,6 +202,11 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         btnInformacionInstitucional.setRoundBottomRight(10);
         btnInformacionInstitucional.setRoundTopLeft(10);
         btnInformacionInstitucional.setRoundTopRight(10);
+        btnInformacionInstitucional.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnInformacionInstitucionalMouseClicked(evt);
+            }
+        });
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/img/moduloPrincipal/edificio.png"))); // NOI18N
@@ -720,9 +715,9 @@ public final class moduloPrincipal extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        jLabel3.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Todos los derechos reservados - UTP + Portal 2022");
+        jlbTodosDerechosReservadis.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jlbTodosDerechosReservadis.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jlbTodosDerechosReservadis.setText("Todos los derechos reservados - UTP + Portal 2022");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -746,7 +741,7 @@ public final class moduloPrincipal extends javax.swing.JPanel {
                     .addComponent(panelHorarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(panelInteresante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jlbTodosDerechosReservadis, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -800,14 +795,10 @@ public final class moduloPrincipal extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(separador1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
+                .addComponent(jlbTodosDerechosReservadis)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-
-    }//GEN-LAST:event_formMouseClicked
 
     private void btnIrHorarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIrHorarioMouseClicked
 
@@ -826,6 +817,11 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         jlbEscribenosWhastApp.setForeground(Color.decode("#175128"));
         jlbNumeroWhatsApp.setForeground(Color.decode("#175128"));
     }//GEN-LAST:event_btnWhatsAppMouseExited
+
+    private void btnInformacionInstitucionalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInformacionInstitucionalMouseClicked
+        UIController.MostrarPanel(frmPrincipal.contenedor, new moduloInfoInstitucional(), 1087, 578);
+        UIController.scrollToTop(frmPrincipal.scrollContenedor);
+    }//GEN-LAST:event_btnInformacionInstitucionalMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -865,7 +861,6 @@ public final class moduloPrincipal extends javax.swing.JPanel {
     public static javax.swing.JLabel jLabel23;
     public static javax.swing.JLabel jLabel24;
     public static javax.swing.JLabel jLabel26;
-    public static javax.swing.JLabel jLabel3;
     public static javax.swing.JLabel jLabel4;
     public static javax.swing.JLabel jLabel5;
     public static javax.swing.JLabel jLabel8;
@@ -889,6 +884,7 @@ public final class moduloPrincipal extends javax.swing.JPanel {
     public static javax.swing.JLabel jlbOtrosEnlaces;
     public static javax.swing.JLabel jlbPodriaInteresar;
     public static javax.swing.JLabel jlbTambienpouede;
+    public static javax.swing.JLabel jlbTodosDerechosReservadis;
     public static javax.swing.JLabel labelCanvas;
     public static javax.swing.JLabel labelCorreo;
     public static javax.swing.JLabel labelMicrosft;

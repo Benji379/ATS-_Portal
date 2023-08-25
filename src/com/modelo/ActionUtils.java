@@ -17,19 +17,18 @@ public class ActionUtils {
         }
     }
 
+    private static final LocalDate CURREN_DATE = LocalDate.now();
+
     public static int getAño() {
-        LocalDate currentDate = LocalDate.now();
-        return currentDate.getYear();
+        return CURREN_DATE.getYear();
     }
 
     public static int getDia() {
-        LocalDate currentDate = LocalDate.now();
-        return currentDate.getDayOfMonth();
+        return CURREN_DATE.getDayOfMonth();
     }
 
     public static int getMes() {
-        LocalDate currentDate = LocalDate.now();
-        return currentDate.getMonthValue();
+        return CURREN_DATE.getMonthValue();
     }
 
     public static String getNameMes() {
@@ -45,4 +44,5 @@ public class ActionUtils {
         return null;
     }
 
+    
 }

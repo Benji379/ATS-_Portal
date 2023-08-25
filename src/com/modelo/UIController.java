@@ -167,4 +167,9 @@ public class UIController {
             UIController.ajustarJLabel(l);
         }
     }
+
+    public static void scrollToTop(JScrollPane scrollPane) {
+        JScrollBar verticalScrollBar = scrollPane.getVerticalScrollBar();
+        verticalScrollBar.setValue(verticalScrollBar.getMinimum());
+    }
 }

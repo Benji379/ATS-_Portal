@@ -6,6 +6,7 @@ import com.modelo.UIController;
 import java.util.ArrayList;
 import java.util.List;
 import static com.vista.moduloPrincipal.*;
+import javax.swing.JLabel;
 
 /**
  *
@@ -37,7 +38,7 @@ public class ControladorPanelPrincipal {
     public static void initBotones() {
         UIController.configBotones(btnInformacionInstitucional, btnBeneficios,
                 btnIngresaBiblioteca, btnBolsaTrabajo, btnEmpleabilidad,
-                btnGooglePlay, btnAppStore, btnAppGallery,btnUTP_Infor);
+                btnGooglePlay, btnAppStore, btnAppGallery, btnUTP_Infor);
     }
 
     public static void initLabel() {
@@ -45,6 +46,14 @@ public class ControladorPanelPrincipal {
         UIController.configLabel(jlbDescpBeneficios, jlbDescpBiblioteca, jlbDescpBolsaTrab, jlbDescpEmpleabilidad);
     }
 
-    
+    public static void initLabelSubrayado() {
+        configSubrayado(labelCorreo, labelCanvas, labelMicrosft, jlbContacLima, jlbContacProvincias);
+    }
+
+    private static void configSubrayado(JLabel... label) {
+        for (JLabel l : label) {
+            UIController.CursorSelectSubrayadoCustom(l);
+        }
+    }
 
 }
