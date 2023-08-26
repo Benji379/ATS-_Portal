@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
@@ -12,10 +14,12 @@ import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
+import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import scrollbar.ScrollBarCustom;
@@ -172,4 +176,35 @@ public class UIController {
         JScrollBar verticalScrollBar = scrollPane.getVerticalScrollBar();
         verticalScrollBar.setValue(verticalScrollBar.getMinimum());
     }
+
+    public static void configureStyledButton(JButton button, String hoverColorHex) {
+        Color originalColor = button.getForeground();
+
+        button.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                updateButtonStyle(button, true, hoverColorHex);
+            }
+
+            @Override
+            public void mouseExited(MouseEvent e) {
+                updateButtonStyle(button, false, originalColor);
+            }
+        });
+    }
+
+    public static void updateButtonStyle(JButton button, boolean isHovered, Color color) {
+        if (isHovered) {
+            String text = button.getText();
+            button.setText("<html><u>" + text + "</u></html>");
+            button.setForeground(color);
+            button.setBorder(BorderFactory.createLineBorder(color));
+        } else {
+            String text = button.getText().replaceAll("<html><u>", "").replaceAll("</u></html>", "");
+            button.setText(text);
+            button.setForeground(color);
+            button.setBorder(UIManager.getBorder("Button.border"));
+        }
+    }
+
 }
