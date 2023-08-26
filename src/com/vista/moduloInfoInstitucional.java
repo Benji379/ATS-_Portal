@@ -12,7 +12,7 @@ public class moduloInfoInstitucional extends javax.swing.JPanel {
     public moduloInfoInstitucional() {
         initComponents();
         UIController.setPanelBackgroundColors(btnAtras, "#fdadb3", "#fed4d6");
-        UIController.configureStyledButton(jButton1, "#23527c", "#387CB4");
+        UIController.setSelectButton(jButton1, "#23527c");
     }
 
     @SuppressWarnings("unchecked")
@@ -31,7 +31,6 @@ public class moduloInfoInstitucional extends javax.swing.JPanel {
         icono1 = new javax.swing.JLabel();
         jlbTitulo1 = new javax.swing.JLabel();
         contenedorLinks1 = new javax.swing.JPanel();
-        label1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(236, 244, 249));
@@ -122,12 +121,6 @@ public class moduloInfoInstitucional extends javax.swing.JPanel {
 
         contenedorLinks1.setBackground(new java.awt.Color(255, 255, 255));
 
-        label1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
-        label1.setForeground(new java.awt.Color(56, 124, 180));
-        label1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/img/moduloPrincipal/flechaAbajo.png"))); // NOI18N
-        label1.setText("Reglamento de Estudios");
-        label1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         jButton1.setFont(new java.awt.Font("Century Gothic", 0, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(56, 124, 180));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/img/moduloPrincipal/flechaAbajo.png"))); // NOI18N
@@ -144,20 +137,16 @@ public class moduloInfoInstitucional extends javax.swing.JPanel {
         contenedorLinks1Layout.setHorizontalGroup(
             contenedorLinks1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenedorLinks1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(contenedorLinks1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         contenedorLinks1Layout.setVerticalGroup(
             contenedorLinks1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(contenedorLinks1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(label1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addComponent(jButton1)
+                .addContainerGap(293, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout Modulo1Layout = new javax.swing.GroupLayout(Modulo1);
@@ -269,6 +258,5 @@ public class moduloInfoInstitucional extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jlbTitulo1;
-    private javax.swing.JLabel label1;
     // End of variables declaration//GEN-END:variables
 }

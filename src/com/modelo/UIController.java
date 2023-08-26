@@ -177,34 +177,31 @@ public class UIController {
         verticalScrollBar.setValue(verticalScrollBar.getMinimum());
     }
 
-    public static void configureStyledButton(JButton button, String hoverColorHex) {
-        Color originalColor = button.getForeground();
-
-        button.addMouseListener(new MouseAdapter() {
+    public static void setSelectButton(JButton boton, String color) {
+        String textoInicial = boton.getText();
+        Color colorInicial = boton.getForeground();
+        boton.addMouseListener(new java.awt.event.MouseAdapter() {
             @Override
-            public void mouseEntered(MouseEvent e) {
-                updateButtonStyle(button, true, hoverColorHex);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+
             }
 
             @Override
-            public void mouseExited(MouseEvent e) {
-                updateButtonStyle(button, false, originalColor);
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+
+            }
+
+            @Override
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                boton.setForeground(Color.decode(color));
+                boton.setText("<html><u>" + textoInicial + "</u></html>");
+            }
+
+            @Override
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                boton.setForeground(Color.decode(color));
+                boton.setText(textoInicial);
             }
         });
     }
-
-    public static void updateButtonStyle(JButton button, boolean isHovered, Color color) {
-        if (isHovered) {
-            String text = button.getText();
-            button.setText("<html><u>" + text + "</u></html>");
-            button.setForeground(color);
-            button.setBorder(BorderFactory.createLineBorder(color));
-        } else {
-            String text = button.getText().replaceAll("<html><u>", "").replaceAll("</u></html>", "");
-            button.setText(text);
-            button.setForeground(color);
-            button.setBorder(UIManager.getBorder("Button.border"));
-        }
-    }
-
 }
