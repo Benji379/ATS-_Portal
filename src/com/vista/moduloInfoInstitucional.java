@@ -130,7 +130,7 @@ public class moduloInfoInstitucional extends javax.swing.JPanel {
         jButton1.setContentAreaFilled(false);
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/com/img/moduloPrincipal/flechaAbajo_Select.png"))); // NOI18N
+        jButton1.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/com/img/moduloPrincipal/flechaAbajo_Select.png"))); // NOI18N
 
         javax.swing.GroupLayout contenedorLinks1Layout = new javax.swing.GroupLayout(contenedorLinks1);
         contenedorLinks1.setLayout(contenedorLinks1Layout);
