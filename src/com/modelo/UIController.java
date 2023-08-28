@@ -5,21 +5,19 @@ import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 import javax.swing.BorderFactory;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
-import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import scrollbar.ScrollBarCustom;
@@ -99,7 +97,6 @@ public class UIController {
         ScrollBarCustom spp = new ScrollBarCustom();
         spp.setOrientation(JScrollBar.HORIZONTAL);
         scrollPane.setHorizontalScrollBar(spp);
-        UIController.removeWhiteBorder(scrollPane);
     }
 
     public static void MostrarPanel(JPanel contenedor, JPanel panel, int ancho, int largo) {
@@ -199,9 +196,19 @@ public class UIController {
 
             @Override
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                boton.setForeground(Color.decode(color));
+                boton.setForeground(colorInicial);
                 boton.setText(textoInicial);
             }
         });
+    }
+
+    public Icon icono(String path, int width, int heigth) {
+        Icon img = new ImageIcon(new ImageIcon(getClass().getResource(path)).getImage().getScaledInstance(width, heigth, java.awt.Image.SCALE_SMOOTH));
+        return img;
+    }
+
+    public Icon icono(String path) {
+        Icon img = new ImageIcon(new ImageIcon(getClass().getResource(path)).getImage().getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH));
+        return img;
     }
 }

@@ -29,8 +29,10 @@ public class ControladorFrmPrincipal {
     }
 
     public static void configScroll() {
-        UIController.ScrollBarrCustom(ScrollMenu);
-        UIController.ScrollBarrCustom(scrollContenedor);
+//        UIController.ScrollBarrCustom(ScrollMenu);
+//        UIController.ScrollBarrCustom(scrollContenedor);
+        UIController.removeWhiteBorder(ScrollMenu);
+        UIController.removeWhiteBorder(scrollContenedor);
         UIController.ScrollInvisible(ScrollMenu);
     }
 

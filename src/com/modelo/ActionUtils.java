@@ -1,7 +1,13 @@
 package com.modelo;
 
+import static com.modelo.FileDownloader.downloadFile;
+import com.modelo.jnafilechooser.api.JnaFileChooser;
+import com.vista.frmPrincipal;
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.time.LocalDate;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -44,5 +50,19 @@ public class ActionUtils {
         return null;
     }
 
-    
+    public static void descargarArchivo(String downloadLink, String nombreMensage) {
+        JnaFileChooser jnaCh = new JnaFileChooser();
+        jnaCh.setDefaultFileName(FileNameExtractor.extractFileName(downloadLink));
+        jnaCh.addFilter("Archivos PDF", "pdf");
+        boolean save = jnaCh.showOpenDialog(new frmPrincipal());
+        if (save) {
+            try {
+                downloadFile(downloadLink, jnaCh.getSelectedFile());
+                UIController ic = new UIController();
+                JOptionPane.showMessageDialog(null, nombreMensage + " descargado", "Mensage", JOptionPane.PLAIN_MESSAGE, ic.icono("/com/img/icons/cheque.png"));
+            } catch (IOException ex) {
+            }
+        }
+    }
+
 }

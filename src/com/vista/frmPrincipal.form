@@ -734,6 +734,9 @@
           </SubComponents>
         </Container>
         <Container class="javax.swing.JScrollPane" name="scrollContenedor">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new com.modelo.scrollWin11.ScrollPaneWin11()"/>
+          </AuxValues>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>

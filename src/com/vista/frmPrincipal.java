@@ -11,7 +11,7 @@ import com.modelo.UIController;
 public final class frmPrincipal extends javax.swing.JFrame {
 
     ControladorFrmPrincipal ac = new ControladorFrmPrincipal();
-
+    
     public frmPrincipal() {
         initComponents();
         initControlador();
@@ -61,7 +61,7 @@ public final class frmPrincipal extends javax.swing.JFrame {
         logoExamamenes = new javax.swing.JLabel();
         jlbExamenes = new javax.swing.JLabel();
         FocusExamenes = new javax.swing.JLabel();
-        scrollContenedor = new javax.swing.JScrollPane();
+        scrollContenedor = new com.modelo.scrollWin11.ScrollPaneWin11();
         contenedor = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
