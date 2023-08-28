@@ -541,11 +541,13 @@ public final class frmPrincipal extends javax.swing.JFrame {
     public void irModuloInicio() {
         ac.FocusPanel(FocusInicio);
         UIController.MostrarPanel(contenedor, new moduloPrincipal(), 1087, 578);
+        UIController.scrollToTop(scrollContenedor);
     }
 
     public void irModuloCursos() {
         ac.FocusPanel(FocusCursos);
-//        UIController.MostrarPanel(contenedor, new moduloPrincipal(), 1087, 578);
+        UIController.MostrarPanel(contenedor, new moduloCursos(), 1087, 578);
+        UIController.scrollToTop(scrollContenedor);
     }
 
     public static void main(String args[]) {

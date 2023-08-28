@@ -1,6 +1,7 @@
 package com.vista;
 
 import com.controlador.ControladorPanelPrincipal;
+import com.modelo.ActionUtils;
 import com.modelo.UIController;
 import java.awt.Color;
 
@@ -68,15 +69,15 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         separador = new javax.swing.JLabel();
         panelDescarga_UtpApp = new javax.swing.JPanel();
         jlbDescarga = new javax.swing.JLabel();
+        btnGooglePlay = new com.modelo.PanelRound();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         btnAppStore = new com.modelo.PanelRound();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         btnAppGallery = new com.modelo.PanelRound();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        btnGooglePlay = new com.modelo.PanelRound();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         panelOtrasPlataformas = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         btnCorreoOutLoock = new com.modelo.PanelRound();
@@ -253,6 +254,11 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         btnBeneficios.setRoundBottomRight(10);
         btnBeneficios.setRoundTopLeft(10);
         btnBeneficios.setRoundTopRight(10);
+        btnBeneficios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBeneficiosMouseClicked(evt);
+            }
+        });
         btnBeneficios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoBeneficios.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -281,6 +287,11 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         btnIngresaBiblioteca.setRoundBottomRight(10);
         btnIngresaBiblioteca.setRoundTopLeft(10);
         btnIngresaBiblioteca.setRoundTopRight(10);
+        btnIngresaBiblioteca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnIngresaBibliotecaMouseClicked(evt);
+            }
+        });
         btnIngresaBiblioteca.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoBiblioteca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -309,6 +320,11 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         btnBolsaTrabajo.setRoundBottomRight(10);
         btnBolsaTrabajo.setRoundTopLeft(10);
         btnBolsaTrabajo.setRoundTopRight(10);
+        btnBolsaTrabajo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnBolsaTrabajoMouseClicked(evt);
+            }
+        });
         btnBolsaTrabajo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoBolsaTrabj.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -337,6 +353,11 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         btnEmpleabilidad.setRoundBottomRight(10);
         btnEmpleabilidad.setRoundTopLeft(10);
         btnEmpleabilidad.setRoundTopRight(10);
+        btnEmpleabilidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEmpleabilidadMouseClicked(evt);
+            }
+        });
         btnEmpleabilidad.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoEmpleabilidad.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -397,12 +418,40 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         jlbDescarga.setFont(new java.awt.Font("Montserrat", 0, 16)); // NOI18N
         jlbDescarga.setText("¡Descarga UTP+APP!");
 
+        btnGooglePlay.setBackground(new java.awt.Color(255, 255, 255));
+        btnGooglePlay.setCustomCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnGooglePlay.setRoundBottomLeft(10);
+        btnGooglePlay.setRoundBottomRight(10);
+        btnGooglePlay.setRoundTopLeft(10);
+        btnGooglePlay.setRoundTopRight(10);
+        btnGooglePlay.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnGooglePlayMouseClicked(evt);
+            }
+        });
+        btnGooglePlay.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setBackground(new java.awt.Color(40, 48, 68));
+        jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(40, 48, 68));
+        jLabel8.setText("Google Play");
+        btnGooglePlay.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
+
+        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/img/moduloPrincipal/iconGooglePlay.png"))); // NOI18N
+        btnGooglePlay.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 40));
+
         btnAppStore.setBackground(new java.awt.Color(255, 255, 255));
         btnAppStore.setCustomCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnAppStore.setRoundBottomLeft(10);
         btnAppStore.setRoundBottomRight(10);
         btnAppStore.setRoundTopLeft(10);
         btnAppStore.setRoundTopRight(10);
+        btnAppStore.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAppStoreMouseClicked(evt);
+            }
+        });
         btnAppStore.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setBackground(new java.awt.Color(40, 48, 68));
@@ -421,6 +470,11 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         btnAppGallery.setRoundBottomRight(10);
         btnAppGallery.setRoundTopLeft(10);
         btnAppGallery.setRoundTopRight(10);
+        btnAppGallery.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAppGalleryMouseClicked(evt);
+            }
+        });
         btnAppGallery.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setBackground(new java.awt.Color(40, 48, 68));
@@ -432,24 +486,6 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/img/moduloPrincipal/iconAppGallery.png"))); // NOI18N
         btnAppGallery.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 40));
-
-        btnGooglePlay.setBackground(new java.awt.Color(255, 255, 255));
-        btnGooglePlay.setCustomCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnGooglePlay.setRoundBottomLeft(10);
-        btnGooglePlay.setRoundBottomRight(10);
-        btnGooglePlay.setRoundTopLeft(10);
-        btnGooglePlay.setRoundTopRight(10);
-        btnGooglePlay.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel8.setBackground(new java.awt.Color(40, 48, 68));
-        jLabel8.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(40, 48, 68));
-        jLabel8.setText("Google Play");
-        btnGooglePlay.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
-
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/img/moduloPrincipal/iconGooglePlay.png"))); // NOI18N
-        btnGooglePlay.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 30, 40));
 
         javax.swing.GroupLayout panelDescarga_UtpAppLayout = new javax.swing.GroupLayout(panelDescarga_UtpApp);
         panelDescarga_UtpApp.setLayout(panelDescarga_UtpAppLayout);
@@ -497,6 +533,11 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         labelCorreo.setForeground(new java.awt.Color(40, 48, 68));
         labelCorreo.setText("Correo outloock");
         labelCorreo.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        labelCorreo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelCorreoMouseClicked(evt);
+            }
+        });
         btnCorreoOutLoock.add(labelCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -516,6 +557,11 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         labelCanvas.setForeground(new java.awt.Color(40, 48, 68));
         labelCanvas.setText("Canvas");
         labelCanvas.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        labelCanvas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelCanvasMouseClicked(evt);
+            }
+        });
         btnCanvas.add(labelCanvas, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -533,8 +579,13 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         labelMicrosft.setBackground(new java.awt.Color(40, 48, 68));
         labelMicrosft.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         labelMicrosft.setForeground(new java.awt.Color(40, 48, 68));
-        labelMicrosft.setText("Microsft Office 365");
+        labelMicrosft.setText("Microsoft Office 365");
         labelMicrosft.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        labelMicrosft.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelMicrosftMouseClicked(evt);
+            }
+        });
         btnMicrosftOffice.add(labelMicrosft, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, -1, -1));
 
         jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -551,8 +602,8 @@ public final class moduloPrincipal extends javax.swing.JPanel {
                     .addComponent(jLabel15)
                     .addComponent(btnCanvas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCorreoOutLoock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnMicrosftOffice, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addComponent(btnMicrosftOffice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(19, 19, 19))
         );
         panelOtrasPlataformasLayout.setVerticalGroup(
             panelOtrasPlataformasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -578,6 +629,11 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         btnUTP_Infor.setRoundBottomRight(10);
         btnUTP_Infor.setRoundTopLeft(10);
         btnUTP_Infor.setRoundTopRight(10);
+        btnUTP_Infor.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnUTP_InforMouseClicked(evt);
+            }
+        });
         btnUTP_Infor.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -591,6 +647,9 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         btnWhatsApp.setRoundTopLeft(10);
         btnWhatsApp.setRoundTopRight(10);
         btnWhatsApp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnWhatsAppMouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnWhatsAppMouseEntered(evt);
             }
@@ -656,6 +715,11 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         btnContacLima.setRoundBottomRight(10);
         btnContacLima.setRoundTopLeft(10);
         btnContacLima.setRoundTopRight(10);
+        btnContacLima.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnContacLimaMouseClicked(evt);
+            }
+        });
         btnContacLima.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jlbContacLima.setBackground(new java.awt.Color(40, 48, 68));
@@ -675,6 +739,11 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         btnContacProvincias.setRoundBottomRight(10);
         btnContacProvincias.setRoundTopLeft(10);
         btnContacProvincias.setRoundTopRight(10);
+        btnContacProvincias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnContacProvinciasMouseClicked(evt);
+            }
+        });
         btnContacProvincias.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jlbContacProvincias.setBackground(new java.awt.Color(40, 48, 68));
@@ -745,7 +814,7 @@ public final class moduloPrincipal extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(32, Short.MAX_VALUE)
+                        .addContainerGap(35, Short.MAX_VALUE)
                         .addComponent(panelDescarga_UtpApp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, Short.MAX_VALUE)
                         .addComponent(panelOtrasPlataformas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -753,7 +822,7 @@ public final class moduloPrincipal extends javax.swing.JPanel {
                         .addComponent(panelCanalesAyuda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, Short.MAX_VALUE)
                         .addComponent(panelContactanos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 35, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(separador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -822,6 +891,62 @@ public final class moduloPrincipal extends javax.swing.JPanel {
         UIController.MostrarPanel(frmPrincipal.contenedor, new moduloInfoInstitucional(), 1087, 578);
         UIController.scrollToTop(frmPrincipal.scrollContenedor);
     }//GEN-LAST:event_btnInformacionInstitucionalMouseClicked
+
+    private void btnBeneficiosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBeneficiosMouseClicked
+        ActionUtils.AccederEnlace("https://view.genial.ly/639788627ec01f0011834607");
+    }//GEN-LAST:event_btnBeneficiosMouseClicked
+
+    private void btnIngresaBibliotecaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnIngresaBibliotecaMouseClicked
+        ActionUtils.AccederEnlace("https://tubiblioteca.utp.edu.pe/");
+    }//GEN-LAST:event_btnIngresaBibliotecaMouseClicked
+
+    private void btnBolsaTrabajoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBolsaTrabajoMouseClicked
+        ActionUtils.AccederEnlace("https://utp.hiringroomcampus.com/");
+    }//GEN-LAST:event_btnBolsaTrabajoMouseClicked
+
+    private void btnEmpleabilidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEmpleabilidadMouseClicked
+        ActionUtils.AccederEnlace("https://www.utp.edu.pe/servicios-universitarios/empleabilidad");
+    }//GEN-LAST:event_btnEmpleabilidadMouseClicked
+
+    private void btnGooglePlayMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnGooglePlayMouseClicked
+        ActionUtils.AccederEnlace("https://play.google.com/store/apps/details?id=com.inlearning&hl=es&gl=US");
+    }//GEN-LAST:event_btnGooglePlayMouseClicked
+
+    private void btnAppStoreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppStoreMouseClicked
+        ActionUtils.AccederEnlace("https://apps.apple.com/pe/app/utp/id1488014558");
+    }//GEN-LAST:event_btnAppStoreMouseClicked
+
+    private void btnAppGalleryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAppGalleryMouseClicked
+        ActionUtils.AccederEnlace("https://appgallery.huawei.com/#/app/C103466585");
+    }//GEN-LAST:event_btnAppGalleryMouseClicked
+
+    private void btnUTP_InforMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnUTP_InforMouseClicked
+        ActionUtils.AccederEnlace("https://info.utp.edu.pe/login");
+    }//GEN-LAST:event_btnUTP_InforMouseClicked
+
+    private void btnWhatsAppMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnWhatsAppMouseClicked
+        ActionUtils.AccederEnlace("https://api.whatsapp.com/send?phone=51960252970&text=Hola%2C%20soy%20alumno%20UTP%20y%20deseo%20hacer%20una%20consulta");
+    }//GEN-LAST:event_btnWhatsAppMouseClicked
+
+    private void btnContacLimaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnContacLimaMouseClicked
+        ActionUtils.AccederEnlace("tel:+5113159600");
+    }//GEN-LAST:event_btnContacLimaMouseClicked
+
+    private void btnContacProvinciasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnContacProvinciasMouseClicked
+        ActionUtils.AccederEnlace("tel:080119600");
+    }//GEN-LAST:event_btnContacProvinciasMouseClicked
+
+    private void labelCorreoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCorreoMouseClicked
+        ActionUtils.AccederEnlace("https://outlook.office.com/mail/");
+    }//GEN-LAST:event_labelCorreoMouseClicked
+
+    private void labelCanvasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCanvasMouseClicked
+        ActionUtils.AccederEnlace("https://canvas.utp.edu.pe/login/canvas");
+    }//GEN-LAST:event_labelCanvasMouseClicked
+
+    private void labelMicrosftMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelMicrosftMouseClicked
+        ActionUtils.AccederEnlace("https://www.microsoft.com/es-es/education/products/office");
+    }//GEN-LAST:event_labelMicrosftMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

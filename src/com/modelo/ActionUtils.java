@@ -3,11 +3,15 @@ package com.modelo;
 import static com.modelo.FileDownloader.downloadFile;
 import com.modelo.jnafilechooser.api.JnaFileChooser;
 import com.vista.frmPrincipal;
-import java.awt.event.ActionEvent;
-import java.io.IOException;
 import java.time.LocalDate;
-import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import java.io.IOException;
+import java.awt.event.ActionEvent;
+import java.net.URI;
+import javax.swing.JButton;
+import java.awt.Desktop;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 /**
  *
@@ -22,7 +26,16 @@ public class ActionUtils {
         } catch (IOException e) {
         }
     }
-
+    
+//    public static void AccederEnlace(String enlace) {
+//        try {
+//            URI uri = new URI(enlace);
+//            Desktop.getDesktop().browse(uri);
+//        } catch (IOException | URISyntaxException e) {
+//            System.out.println("ERROR: " + e.getMessage());
+//        }
+//    }
+    
     private static final LocalDate CURREN_DATE = LocalDate.now();
 
     public static int getAño() {

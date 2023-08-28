@@ -1,12 +1,10 @@
 package com.controlador;
 
-import com.data.LinksAyuda;
 import com.modelo.ActionUtils;
 import com.modelo.UIController;
 import static com.vista.moduloInfoInstitucional.*;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 
 /**
  *
