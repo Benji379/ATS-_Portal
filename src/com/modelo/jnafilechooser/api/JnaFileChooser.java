@@ -11,17 +11,36 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 
 import com.sun.jna.Platform;
 
+/**
+ * JnaFileChooser is a wrapper around the native Windows file chooser and folder
+ * browser that falls back to the Swing JFileChooser on platforms other than
+ * Windows or if the user chooses a combination of features that are not
+ * supported by the native dialogs (for example multiple selection of
+ * directories).
+ *
+ * Example: JnaFileChooser fc = new JnaFileChooser(); fc.setFilter("All Files",
+ * "*"); fc.setFilter("Pictures", "jpg", "jpeg", "gif", "png", "bmp");
+ * fc.setMultiSelectionEnabled(true);
+ * fc.setMode(JnaFileChooser.Mode.FilesAndDirectories); if
+ * (fc.showOpenDialog(parent)) { Files[] selected = fc.getSelectedFiles(); // do
+ * something with selected }
+ *
+ * @see JFileChooser, WindowsFileChooser, WindowsFileBrowser
+ */
 public class JnaFileChooser {
 
     private static enum Action {
         Open, Save
     }
 
+    /**
+     * the availabe selection modes of the dialog
+     */
     public static enum Mode {
         Files(JFileChooser.FILES_ONLY),
         Directories(JFileChooser.DIRECTORIES_ONLY),
         FilesAndDirectories(JFileChooser.FILES_AND_DIRECTORIES);
-        private final int jFileChooserValue;
+        private int jFileChooserValue;
 
         private Mode(int jfcv) {
             this.jFileChooserValue = jfcv;
@@ -43,8 +62,12 @@ public class JnaFileChooser {
     protected String openButtonText;
     protected String saveButtonText;
 
+    /**
+     * creates a new file chooser with multiselection disabled and mode set to
+     * allow file selection only.
+     */
     public JnaFileChooser() {
-        filters = new ArrayList<>();
+        filters = new ArrayList<String[]>();
         multiSelectionEnabled = false;
         mode = Mode.Files;
         selectedFiles = new File[]{null};
@@ -55,6 +78,11 @@ public class JnaFileChooser {
         saveButtonText = "";
     }
 
+    /**
+     * creates a new file chooser with the specified initial directory
+     *
+     * @param currentDirectory the initial directory
+     */
     public JnaFileChooser(File currentDirectory) {
         this();
         if (currentDirectory != null) {
@@ -63,15 +91,34 @@ public class JnaFileChooser {
         }
     }
 
+    /**
+     * creates a new file chooser with the specified initial directory
+     *
+     * @param currentDirectory the initial directory
+     */
     public JnaFileChooser(String currentDirectoryPath) {
         this(currentDirectoryPath != null
                 ? new File(currentDirectoryPath) : null);
     }
 
+    /**
+     * shows a dialog for opening files
+     *
+     * @param parent the parent window
+     *
+     * @return true if the user clicked OK
+     */
     public boolean showOpenDialog(Window parent) {
         return showDialog(parent, Action.Open);
     }
 
+    /**
+     * shows a dialog for saving files
+     *
+     * @param parent the parent window
+     *
+     * @return true if the user clicked OK
+     */
     public boolean showSaveDialog(Window parent) {
         return showDialog(parent, Action.Save);
     }
@@ -81,6 +128,18 @@ public class JnaFileChooser {
         if (Platform.isWindows() && mode != Mode.FilesAndDirectories) {
             // windows filechooser can only multiselect files
             if (multiSelectionEnabled && mode == Mode.Files) {
+                // TODO Here we would use the native windows dialog
+                // to choose multiple files. However I haven't been able
+                // to get it to work properly yet because it requires
+                // tricky callback magic and somehow this didn't work for me
+                // quite as documented (probably because I messed something up).
+                // Because I don't need this feature right now I've put it on
+                // hold to get on with stuff.
+                // Example code: http://support.microsoft.com/kb/131462/en-us
+                // GetOpenFileName: http://msdn.microsoft.com/en-us/library/ms646927.aspx
+                // OFNHookProc: http://msdn.microsoft.com/en-us/library/ms646931.aspx
+                // CDN_SELCHANGE: http://msdn.microsoft.com/en-us/library/ms646865.aspx
+                // SendMessage: http://msdn.microsoft.com/en-us/library/ms644950.aspx
             } else if (!multiSelectionEnabled) {
                 if (mode == Mode.Files) {
                     return showWindowsFileChooser(parent, action);
@@ -100,20 +159,16 @@ public class JnaFileChooser {
         fc.setFileSelectionMode(mode.getJFileChooserValue());
 
         // set select file
-        if (!defaultFile.isEmpty() && action == Action.Save) {
+        if (!defaultFile.isEmpty() & action == Action.Save) {
             File fsel = new File(defaultFile);
             fc.setSelectedFile(fsel);
         }
-
-        // Set the default file name in the text field
-        fc.setSelectedFile(new File(defaultFile));  // Esto agregará el nombre por defecto al campo de texto
-
         if (!dialogTitle.isEmpty()) {
             fc.setDialogTitle(dialogTitle);
         }
-        if (action == Action.Open && !openButtonText.isEmpty()) {
+        if (action == Action.Open & !openButtonText.isEmpty()) {
             fc.setApproveButtonText(openButtonText);
-        } else if (action == Action.Save && !saveButtonText.isEmpty()) {
+        } else if (action == Action.Save & !saveButtonText.isEmpty()) {
             fc.setApproveButtonText(saveButtonText);
         }
 
@@ -132,7 +187,7 @@ public class JnaFileChooser {
             fc.setAcceptAllFileFilterUsed(useAcceptAllFilter);
         }
 
-        int result;
+        int result = -1;
         if (action == Action.Open) {
             result = fc.showOpenDialog(parent);
         } else {
@@ -188,16 +243,28 @@ public class JnaFileChooser {
         return false;
     }
 
+    /**
+     * add a filter to the user-selectable list of file filters
+     *
+     * @param name name of the filter
+     * @param filter you must pass at least 1 argument, the arguments are the
+     * file extensions.
+     */
     public void addFilter(String name, String... filter) {
         if (filter.length < 1) {
             throw new IllegalArgumentException();
         }
-        ArrayList<String> parts = new ArrayList<>();
+        ArrayList<String> parts = new ArrayList<String>();
         parts.add(name);
         Collections.addAll(parts, filter);
         filters.add(parts.toArray(new String[parts.size()]));
     }
 
+    /**
+     * sets the selection mode
+     *
+     * @param mode the selection mode
+     */
     public void setMode(Mode mode) {
         this.mode = mode;
     }
@@ -210,6 +277,11 @@ public class JnaFileChooser {
         this.currentDirectory = (currentDirectoryPath != null ? new File(currentDirectoryPath) : null);
     }
 
+    /**
+     * sets whether to enable multiselection
+     *
+     * @param enabled true to enable multiselection, false to disable it
+     */
     public void setMultiSelectionEnabled(boolean enabled) {
         this.multiSelectionEnabled = enabled;
     }
@@ -222,14 +294,32 @@ public class JnaFileChooser {
         this.defaultFile = dfile;
     }
 
+    /**
+     * set a title name
+     *
+     * @param Title of dialog
+     *
+     */
     public void setTitle(String title) {
         this.dialogTitle = title;
     }
 
+    /**
+     * set a open button name
+     *
+     * @param open button text
+     *
+     */
     public void setOpenButtonText(String buttonText) {
         this.openButtonText = buttonText;
     }
 
+    /**
+     * set a save button name
+     *
+     * @param save button text
+     *
+     */
     public void setSaveButtonText(String buttonText) {
         this.saveButtonText = buttonText;
     }
@@ -244,12 +334,5 @@ public class JnaFileChooser {
 
     public File getCurrentDirectory() {
         return currentDirectory;
-    }
-
-    public void addFileExtensionFilter(String description, String... extensions) {
-        String[] filterArray = new String[extensions.length + 1];
-        filterArray[0] = description;
-        System.arraycopy(extensions, 0, filterArray, 1, extensions.length);
-        filters.add(filterArray);
     }
 }

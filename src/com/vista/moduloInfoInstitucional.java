@@ -1,7 +1,6 @@
 package com.vista;
 
 import com.controlador.ControladorInfoInstitucional;
-import com.modelo.ActionUtils;
 import com.modelo.UIController;
 import static com.vista.frmPrincipal.contenedor;
 import javax.swing.JPanel;
@@ -1162,6 +1161,7 @@ public class moduloInfoInstitucional extends javax.swing.JPanel {
 
     private void encabezado1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_encabezado1MouseClicked
         Achicar(contenedorLinks1);
+        
     }//GEN-LAST:event_encabezado1MouseClicked
 
     private void encabezado2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_encabezado2MouseClicked
@@ -1177,6 +1177,7 @@ public class moduloInfoInstitucional extends javax.swing.JPanel {
             cont.setVisible(!cont.isVisible());
             revalidate();
             repaint();
+            System.out.println("Achicar");
         }
     }
 

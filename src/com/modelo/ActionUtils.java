@@ -2,16 +2,10 @@ package com.modelo;
 
 import static com.modelo.FileDownloader.downloadFile;
 import com.modelo.jnafilechooser.api.JnaFileChooser;
-import com.vista.frmPrincipal;
+import com.vista.moduloInfoInstitucional;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import java.io.IOException;
-import java.awt.event.ActionEvent;
-import java.net.URI;
-import javax.swing.JButton;
-import java.awt.Desktop;
-import java.net.URI;
-import java.net.URISyntaxException;
 
 /**
  *
@@ -26,16 +20,7 @@ public class ActionUtils {
         } catch (IOException e) {
         }
     }
-    
-//    public static void AccederEnlace(String enlace) {
-//        try {
-//            URI uri = new URI(enlace);
-//            Desktop.getDesktop().browse(uri);
-//        } catch (IOException | URISyntaxException e) {
-//            System.out.println("ERROR: " + e.getMessage());
-//        }
-//    }
-    
+
     private static final LocalDate CURREN_DATE = LocalDate.now();
 
     public static int getAño() {
@@ -64,18 +49,21 @@ public class ActionUtils {
     }
 
     public static void descargarArchivo(String downloadLink, String nombreMensage) {
-        JnaFileChooser jnaCh = new JnaFileChooser();
-        jnaCh.setDefaultFileName(FileNameExtractor.extractFileName(downloadLink));
-        jnaCh.addFilter("Archivos PDF", "pdf");
-        boolean save = jnaCh.showOpenDialog(new frmPrincipal());
-        if (save) {
-            try {
-                downloadFile(downloadLink, jnaCh.getSelectedFile());
-                UIController ic = new UIController();
-                JOptionPane.showMessageDialog(null, nombreMensage + " descargado", "Mensage", JOptionPane.PLAIN_MESSAGE, ic.icono("/com/img/icons/cheque.png"));
-            } catch (IOException ex) {
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            JnaFileChooser jnaCh = new JnaFileChooser();
+            jnaCh.setDefaultFileName(FileNameExtractor.extractFileName(downloadLink));
+            jnaCh.addFilter("Archivos PDF", "pdf");
+            java.awt.Window parentWindow = javax.swing.SwingUtilities.windowForComponent(new moduloInfoInstitucional());
+            boolean save = jnaCh.showOpenDialog(parentWindow);
+            if (save) {
+                try {
+                    downloadFile(downloadLink, jnaCh.getSelectedFile());
+                    UIController ic = new UIController();
+                    JOptionPane.showMessageDialog(null, nombreMensage + " descargado", "Mensage", JOptionPane.PLAIN_MESSAGE, ic.icono("/com/img/icons/cheque.png"));
+                } catch (IOException ex) {
+                }
             }
-        }
+        });
     }
 
 }
