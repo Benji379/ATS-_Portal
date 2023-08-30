@@ -8,17 +8,12 @@ import java.awt.event.MouseMotionAdapter;
 
 public class JListCustom {
 
-    public static void customizeJList(JList<String> jList, int itemHeight, int itemSpacing, int leftSpacing) {
+    public static void customizeJList(JList<String> jList, int itemHeight, int itemSpacing, int leftSpacing, Color colorFondo, Color colorLetras) {
         // Crear un borde vacío
         Border emptyBorder = BorderFactory.createEmptyBorder();
 
         // Establecer el fondo blanco
-        jList.setBackground(new Color(255,51,51));
-        
         // Establecer la fuente y el color de las letras
-        Font font = new Font("Century Gothic", Font.PLAIN, 15);
-        jList.setFont(font);
-        jList.setForeground(new Color(255, 255, 255));
 
         // Configurar el cambio de cursor a mano cuando se selecciona un elemento
         jList.addMouseMotionListener(new MouseMotionAdapter() {
@@ -41,8 +36,8 @@ public class JListCustom {
                 JLabel renderer = (JLabel) super.getListCellRendererComponent(list, value, index,
                         isSelected, cellHasFocus);
 
-                renderer.setBackground(isSelected ? new Color(255, 255, 255) : new Color(255,51,51));
-                renderer.setForeground(isSelected ? new Color(0, 0, 0) : new Color(255, 255, 255));
+                renderer.setBackground(isSelected ? new Color(255, 255, 255) : colorFondo);
+                renderer.setForeground(isSelected ? new Color(0, 0, 0) : colorLetras);
                 renderer.setBorder(emptyBorder);
 
                 // Establecer el espacio izquierdo del texto

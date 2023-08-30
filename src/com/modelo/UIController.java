@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 import scrollbar.ScrollBarCustom;
@@ -30,6 +31,16 @@ public class UIController {
 
     public static void removeWhiteBorder(JScrollPane scrollPane) {
         scrollPane.setBorder(new EmptyBorder(0, 0, 0, 0));
+    }
+
+    public static void transparentarTxtField(JTextField... txtField) {
+        for (JTextField txt : txtField) {
+            txt.setBackground(new java.awt.Color(0, 0, 0, 1));
+        }
+    }
+
+    public static void transparentarTxtField(JTextField txtField) {
+        txtField.setBackground(new java.awt.Color(0, 0, 0, 1));
     }
 
     public static void setPanelBackgroundColors(JPanel panel, String pressedColor, String rolloverColor) {
@@ -211,4 +222,5 @@ public class UIController {
         Icon img = new ImageIcon(new ImageIcon(getClass().getResource(path)).getImage().getScaledInstance(40, 40, java.awt.Image.SCALE_SMOOTH));
         return img;
     }
+
 }

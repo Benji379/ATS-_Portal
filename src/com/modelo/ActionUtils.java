@@ -3,6 +3,7 @@ package com.modelo;
 import static com.modelo.FileDownloader.downloadFile;
 import com.modelo.jnafilechooser.api.JnaFileChooser;
 import com.vista.moduloInfoInstitucional;
+import java.awt.Color;
 import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import java.io.IOException;
@@ -65,5 +66,30 @@ public class ActionUtils {
             }
         });
     }
+
+    public static String Color_a_Hexa(Color color) {
+        int red = color.getRed();
+        int green = color.getGreen();
+        int blue = color.getBlue();
+
+        String hexRed = Integer.toHexString(red);
+        String hexGreen = Integer.toHexString(green);
+        String hexBlue = Integer.toHexString(blue);
+
+        // Asegurarse de que los componentes tengan dos dígitos hexadecimales
+        if (hexRed.length() == 1) {
+            hexRed = "0" + hexRed;
+        }
+        if (hexGreen.length() == 1) {
+            hexGreen = "0" + hexGreen;
+        }
+        if (hexBlue.length() == 1) {
+            hexBlue = "0" + hexBlue;
+        }
+
+        // Concatenar los componentes hexadecimales y devolver el resultado
+        return hexRed + hexGreen + hexBlue;
+    }
+
 
 }

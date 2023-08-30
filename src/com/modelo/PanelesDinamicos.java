@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 public class PanelesDinamicos {
 
-    private final List<JPanel> LIST_PANELES = new ArrayList<>();
+    private static final List<JPanel> LIST_PANELES = new ArrayList<>();
 
     public void reorganizePanels(JPanel panelPrincipal, JPanel panelContenedor, JPanel panelDuplicar, int separacion, int margenLateral) {
         panelContenedor.removeAll();
@@ -36,7 +36,6 @@ public class PanelesDinamicos {
         panelContenedor.revalidate();
         panelContenedor.repaint();
     }
-
 
     public void AgregarPanel(JPanel panelContenedor, int separacion, int margenLateral, JPanel panelDuplicar) {
         int panelWidth = panelDuplicar.getPreferredSize().width;
